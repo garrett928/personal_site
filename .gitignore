@@ -287,6 +287,9 @@ fabric.properties
 
 # Environments
 .idea/
+
+# ignore secret key
+secret.txt
 # Spyder project settings
 
 # Rope project settings
