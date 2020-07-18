@@ -15,7 +15,6 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
@@ -26,17 +25,18 @@ with open('personal_site/secret.txt') as file:
 
 SECRET_KEY = key
 
-
-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
 # Application definition
 
+#for django.contrib.sites
+SITE_ID = 1
+
 INSTALLED_APPS = [
+    'djangocms_admin_style',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -45,9 +45,27 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'portfolio.apps.PortfolioConfig',
     'rest_framework',
+    'django.contrib.sites',
+    'cms',
+    'menus',
+    'treebeard',
+'sekizai',
+'filer',
+'easy_thumbnails',
+'mptt',
+'djangocms_text_ckeditor',
+'djangocms_link',
+'djangocms_file',
+'djangocms_picture',
+'djangocms_video',
+# 'djangocms_googlemap',
+'djangocms_snippet',
+'djangocms_style',
+
 ]
 
 MIDDLEWARE = [
+'cms.middleware.utils.ApphookReloadMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -55,6 +73,11 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+'django.middleware.locale.LocaleMiddleware',
+'cms.middleware.user.CurrentUserMiddleware',
+'cms.middleware.page.CurrentPageMiddleware',
+'cms.middleware.toolbar.ToolbarMiddleware',
+'cms.middleware.language.LanguageCookieMiddleware',
 ]
 
 ROOT_URLCONF = 'personal_site.urls'
@@ -71,13 +94,15 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+'sekizai.context_processors.sekizai',
+'cms.context_processors.cms_settings',
+'django.template.context_processors.i18n',
             ],
         },
     },
 ]
 
 WSGI_APPLICATION = 'personal_site.wsgi.application'
-
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
@@ -88,7 +113,6 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
@@ -108,11 +132,10 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'en'
 
 TIME_ZONE = 'UTC'
 
@@ -122,8 +145,30 @@ USE_L10N = True
 
 USE_TZ = True
 
+LANGUAGES = [
+    ('en', 'English'),
+]
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# CMS
+X_FRAME_OPTIONS = 'SAMEORIGIN'
+CMS_TEMPLATES = [
+    ('home.html', 'Home page template'),
+]
+
+MEDIA_URL = "/media/"
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+
+#filer for cms
+THUMBNAIL_HIGH_RESOLUTION = True
+
+THUMBNAIL_PROCESSORS = (
+    'easy_thumbnails.processors.colorspace',
+    'easy_thumbnails.processors.autocrop',
+    'filer.thumbnail_processors.scale_and_crop_with_subject_location',
+    'easy_thumbnails.processors.filters'
+)

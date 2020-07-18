@@ -13,17 +13,21 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from xml.etree.ElementInclude import include
+#from xml.etree.ElementInclude import include
 
 from django.contrib import admin
-from django.urls import path, re_path
+from django.urls import path, re_path, include
+from django.conf import settings
+from django.conf.urls.static import static
 
 import portfolio
+from personal_site import settings
 from portfolio import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     # path(r'^api-auth/', include('rest_framework.urls')), broke, idk why
-    path(r'', views.AllTech.as_view()),
-    re_path(r'(?P<pk>\d+)', views.TechView.as_view()),
-]
+    # path(r'', views.AllTech.as_view()),
+    # re_path(r'(?P<pk>\d+)', views.TechView.as_view()),
+re_path(r'^', include('cms.urls')),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
