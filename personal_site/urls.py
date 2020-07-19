@@ -30,4 +30,4 @@ urlpatterns = [
     # path(r'', views.AllTech.as_view()),
     # re_path(r'(?P<pk>\d+)', views.TechView.as_view()),
 re_path(r'^', include('cms.urls')),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
