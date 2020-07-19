@@ -26,9 +26,23 @@ with open('personal_site/secret.txt') as file:
 SECRET_KEY = key
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+#DEBUG = True
+#WILL be true by deafault. use export DJANGO_DEBUG=False to disable
+DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
-ALLOWED_HOSTS = []
+# when in production
+if DEBUG == False:
+     CSRF_COOKIE_SECURE = True
+     SESSION_COOKIE_SECURE = True
+     STATIC_URL = '/static/'
+
+#for now allow all host, will change
+#use in nginx to reject default host
+# server {
+#     listen 80 default_server;
+#     return 444;
+# }
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
