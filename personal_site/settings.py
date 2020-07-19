@@ -34,7 +34,7 @@ DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 if DEBUG == False:
      CSRF_COOKIE_SECURE = True
      SESSION_COOKIE_SECURE = True
-     STATIC_URL = '/static/'
+
 
 #for now allow all host, will change
 #use in nginx to reject default host
@@ -167,6 +167,7 @@ LANGUAGES = [
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
 
 # CMS
 X_FRAME_OPTIONS = 'SAMEORIGIN'
