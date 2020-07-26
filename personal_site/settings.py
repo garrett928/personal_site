@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+from django.utils.translation import gettext_lazy as _
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -69,13 +70,27 @@ INSTALLED_APPS = [
 'mptt',
 'djangocms_text_ckeditor',
 'djangocms_link',
-'djangocms_file',
-'djangocms_picture',
 'djangocms_video',
 # 'djangocms_googlemap',
 'djangocms_snippet',
 'djangocms_style',
-
+'djangocms_icon',
+'djangocms_picture',
+'djangocms_bootstrap4',
+'djangocms_bootstrap4.contrib.bootstrap4_alerts',
+'djangocms_bootstrap4.contrib.bootstrap4_badge',
+'djangocms_bootstrap4.contrib.bootstrap4_card',
+'djangocms_bootstrap4.contrib.bootstrap4_carousel',
+'djangocms_bootstrap4.contrib.bootstrap4_collapse',
+'djangocms_bootstrap4.contrib.bootstrap4_content',
+'djangocms_bootstrap4.contrib.bootstrap4_grid',
+'djangocms_bootstrap4.contrib.bootstrap4_jumbotron',
+'djangocms_bootstrap4.contrib.bootstrap4_link',
+'djangocms_bootstrap4.contrib.bootstrap4_listgroup',
+'djangocms_bootstrap4.contrib.bootstrap4_media',
+'djangocms_bootstrap4.contrib.bootstrap4_picture',
+'djangocms_bootstrap4.contrib.bootstrap4_tabs',
+'djangocms_bootstrap4.contrib.bootstrap4_utilities',
 ]
 
 MIDDLEWARE = [
@@ -115,6 +130,12 @@ TEMPLATES = [
         },
     },
 ]
+
+# djangocms_bootstrap4 settinsg
+DJANGOCMS_BOOTSTRAP4_CAROUSEL_TEMPLATES = (
+    ('default', _('Default')),
+    ('main', _('Main')),
+)
 
 WSGI_APPLICATION = 'personal_site.wsgi.application'
 
