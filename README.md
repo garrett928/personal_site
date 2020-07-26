@@ -1,0 +1,17 @@
+# personal_site
+website/server to showcase projects I've made and mess around with serverside programming and networking
+
+# Purpose
+This project has a few purposes. First this site will be a home to other projects that I've worked on. I want to have mini write-ups and documentation for each project so others can learn from what I’ve done. Second, I want to include some information about me for professional applications, such as my resume. Afterall, If I’m going to go through all the work to create this site, why not use it professionally as well? And lastly, this site is going to be a “gateway” to other server and networking projects. So, for example, I run octoprint and owncloud (I’ll link these later). This site will allow me to log in and see links to these other sites, which are meant only for me or people I’ve allowed. 
+
+# Motivation
+For a while now I’ve been super interested in servers and the complexities of networking. My first experience was senior year of high school, setting up octoprint on my raspberry pi. However, viewing my prints from inside my house was not very useful. So I began researching how to use octoprint from anywhere. I was quickly discouraged from port forwarding after reading a few articles, for reasons which are obvious to me now. After some more reading, my solution was to run nginx as a reverse proxy. While this should be much more secure, to be honest, I have no clue how secure I configured it. What I do know is, after having nginx up and running, I wanted to do more with it! This is what really began my dive into servers. 
+
+I spent the next few weeks trying to figure out how to configure nginx to run multiple sites. Much of that time was spent troubleshooting owncloud. However, by the end of summer after senior year, I had a personal domain tied to my own server running owncloud and octoprint. And it was using https. (seriously! Why are some sites still not encrypted!) I used this server for various things throughout my freshman year of college. I ran a minecraft server for my floor, ran a discord bot, tried to run a mirror of agario, and a few other small things. 
+
+At the time of starting this project, it is the summer before my sophomore year. I’ve now worked with nginx for a little bit and feel fairly comfortable with very basic linux networking (I know I am only scratching the surface). However, I have never made a website/server from scratch. Now personally, I really only care about the web server and backend. But, what good is a backend without a front end? So that leads me here, working on a full stack project. 
+
+Additionally, besides my interest in servers, it has just always been a cool thought to me to have a site showcasing and documenting my other projects! I’m someone who loves reading hackaday projects, instructables, and other people’s personal blogs and write ups. A lot of them have been extremely valuable to me. I’ve always thought it would be cool to do the same one day.
+
+And finally, like a lot of people I work on a lot of projects but many do get finished or cleaned up to a “production” state. Part of making this site something “professional” is for it to be kept cleaned up. I want this to be a finished project. Like keeping master in a working state, working on feature branches, clean code, some documentation, nice looking site pages, etc. It feels nice when you put in the extra work for a finished project.
+
