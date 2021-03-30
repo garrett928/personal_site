@@ -1,5 +1,5 @@
 asgiref==3.2.10
-Django==3.0.8
+Django==3.0.12
 django-classy-tags==1.0.0
 django-cms==3.7.3
 django-filer==1.7.1
